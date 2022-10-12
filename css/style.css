@@ -1,0 +1,159 @@
+/* this is the beginning for styling the mobile view */
+#logo{
+    width: 475px;
+    animation: hw5_move 5s;
+}
+/* animating the logo*/
+@keyframes hw5_move {
+    from {width: 25px; opacity: 0}
+    to{width: 475px; opacity: 1}
+}
+
+body{ 
+    font-family: 'Poppins', serif;
+    background-image: url('../images/concrete_seamless.png');
+    background-color: #f1f1f1
+}
+
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center
+}
+
+/* aligning the links in the center under the logo and to the left */
+.nav_links{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start
+}
+/* making the links remain the same blue color once clicked */
+a:visited{
+    color: blue;
+    background: transparent;
+    text-decoration: underline
+}
+
+.card > header{
+    background: #288088;
+    border: solid 2px #45ADAD;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 0px;
+    padding-right: 0px;
+    border-top-right-radius: 50px;
+    border-top-left-radius: 50px
+}
+
+.card{
+    display: flex;
+    border-top-right-radius: 50px;
+    border-top-left-radius: 50px;
+    flex-direction: column;
+    flex-basis: 450px;
+}
+
+.pricing{
+    display: flex;
+    flex-direction: column;
+    flex-flow: wrap;
+    align-items: center;
+    justify-content: center
+}
+
+/* styling the gallery images and gallery format*/
+.gallery img{
+    border: solid 10px #50C7C7;
+    margin: 10px;
+    width: 300px
+}
+
+.gallery{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* starting the large screen view properties */
+@media screen and (min-width: 900px){
+
+header{
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: center
+}
+
+/* links move to the right side of the window */
+.nav_links{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.pricing{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+}
+ /* this ensures the cards stay the same size regardless of window size */
+.card{
+    display: flex;
+    flex-basis: 275px;
+}
+ /* keeping the header floating at the top of the screen */
+body > header{
+    position: sticky;
+    z-index: 1;
+    top: 0;
+}
+}
+ /* changes for when motion is reduced */
+@media screen and (prefers-reduced-motion) {
+
+#logo{
+    animation: none;
+}
+}
+ /* starting the print view */
+@media print{
+
+body{
+    font-family: Arial, Helvetica;
+    background-image: none;
+}
+
+/* new spacing for nav links in print view */
+.nav_links, nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.pricing{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+/* cards stay the same size and are all in line with same border */
+.card{
+    border: 2px solid #45ADDD;
+    flex-basis: 325px;
+}
+
+/* no gallery at the bottom of the page */
+.gallery, #gallery{
+    display: none;
+}
+
+ /* adding the emojis */
+.pricing li:nth-child(2)::after{
+    content: "\1F44D"
+}
+}
